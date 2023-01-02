@@ -15,7 +15,18 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-public:	
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> actorToSpawn;
 
+	UPROPERTY(EditAnywhere)
+	AActor* currentPlatform;
+
+public:
+	AActor* instantiatedActor;
+	FVector newPos;
+	int32 a, b;
+	bool hasSpawnPlatform;
+	float _dis, spawnTime, spawnPlatformTime, destroyTime;
+
+	virtual void Tick(float DeltaTime) override;
 };
